@@ -23,3 +23,7 @@ end
 # クラス:Monster
 # 情報:Character
 # 役割：勇者に攻撃する、勇者からダメージを受ける
+
+#インスタンスを生成する
+brave = Brave.new
+monster = Monster.new
