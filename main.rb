@@ -1,7 +1,7 @@
-class Brave
+class Brave < Character
 end
 
-class Monster
+class Monster < Character
 end
 
 class Character
