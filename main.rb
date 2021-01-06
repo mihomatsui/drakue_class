@@ -25,5 +25,6 @@ end
 # 役割：勇者に攻撃する、勇者からダメージを受ける
 
 #インスタンスを生成する
-brave = Brave.new
-monster = Monster.new
+brave = Brave.new(name: "ゆうしゃ", hp: 238, offense: 203, defense: 129)
+monster1 = Monster.new(name: "アークデーモン", hp: 210, offense: 140, defense: 80)
+monster2 = Monster.new(name: "シドー", hp: 250, offense: 255, defense: 255)
