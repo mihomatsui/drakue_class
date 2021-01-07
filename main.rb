@@ -1,6 +1,18 @@
+class Character
+  attr_accessor :name, :hp, :offense, :defense
+  def initialize(name:, hp:, offense:, defense:)
+    @name = name
+    @hp = hp
+    @offense = offense
+    @defense = defense
+  end
+end
+
 class Brave < Character
   def attack(monster)
     # 勇者がモンスターに攻撃する
+    puts "#{monster.name} があらわれた!"
+    puts "#{brave.name} の攻撃！"
     while true
     end
   end
@@ -13,15 +25,7 @@ class Monster < Character
   end
 end
 
-class Character
-  attr_acccessor :name, :hp, :offense, :defense
-  def initialize(name:, hp:, offense:, defense:)
-    @name = name
-    @hp = hp
-    @offense = offense
-    @defense = defense
-  end
-end
+
 
 # クラス:Character
 # 情報:name,hp,offense(攻め),defense(防御)
@@ -37,8 +41,8 @@ end
 
 #インスタンスを生成する
 brave = Brave.new(name: "ゆうしゃ", hp: 238, offense: 203, defense: 129)
-monster1 = Monster.new(name: "アークデーモン", hp: 210, offense: 140, defense: 80)
-monster2 = Monster.new(name: "シドー", hp: 250, offense: 255, defense: 255)
+monster = Monster.new(name: "アークデーモン", hp: 210, offense: 140, defense: 80)
+
 
 brave.attack(monster)
 monster.attack(brave)
