@@ -1,7 +1,11 @@
 class Brave < Character
+  def attack
+  end
 end
 
 class Monster < Character
+  def attack
+  end
 end
 
 class Character
