@@ -5,11 +5,13 @@ class Monster < Character
 end
 
 class Character
+  attr_acccessor :name, :hp, :offense, :defense
   def initialize(name:, hp:, offense:, defense:)
     @name = name
     @hp = hp
     @offense = offense
     @defense = defense
+  end
 end
 
 # クラス:Character
