@@ -1,5 +1,6 @@
 class Brave < Character
   def attack(monster)
+    # 勇者がモンスターに攻撃する
     while true
     end
   end
@@ -38,3 +39,6 @@ end
 brave = Brave.new(name: "ゆうしゃ", hp: 238, offense: 203, defense: 129)
 monster1 = Monster.new(name: "アークデーモン", hp: 210, offense: 140, defense: 80)
 monster2 = Monster.new(name: "シドー", hp: 250, offense: 255, defense: 255)
+
+brave.attack(monster)
+monster.attack(brave)
