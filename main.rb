@@ -1,10 +1,14 @@
 class Brave < Character
-  def attack
+  def attack(monster)
+    while true
+    end
   end
 end
 
 class Monster < Character
-  def attack
+  def attack(brave)
+    while true
+    end
   end
 end
 
