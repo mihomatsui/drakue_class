@@ -12,8 +12,11 @@ class Brave < Character
   def attack(monster)
     # 勇者がモンスターに攻撃する
     puts "#{monster.name} があらわれた!"
-    puts "#{brave.name} の攻撃！"
+    puts "ゆうしゃ の攻撃！"
+    # 勇者がモンスターに攻撃する
+    # モンスターのHPを減らす
     while true
+      puts "#{monster.name}に#{}"
     end
   end
 end
