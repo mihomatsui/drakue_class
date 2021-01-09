@@ -23,30 +23,13 @@ end
 class Monster < Character
   def attack(brave)
     # モンスターが勇者に攻撃する
-    # 勇者のHPを減らす
-    brave.damage = monster.offense - brave.defense / 2
-    brave.hp =- brave.damage
-
-    puts "#{monster.name} の攻撃！"
-    while true
-      puts "ゆうしゃ は #{brave.damage} のダメージを受けた！"
-    end
+    #ダメージ計算式
+    damage = offense - brave.defense / 2
+    puts "#{@name} の攻撃!"
+    puts "#{brave.name} は #{damage} のダメージを受けた！"
   end
 end
 
-
-
-# クラス:Character
-# 情報:name,hp,offense(攻め),defense(防御)
-# 役割：-(なし。存在のみ)
-
-# クラス:Brave
-# 情報:Character
-# 役割：モンスターに攻撃する、モンスターからダメージを受ける
-
-# クラス:Monster
-# 情報:Character
-# 役割：勇者に攻撃する、勇者からダメージを受ける
 
 # 実体を生成する部分、呼び出し部分 -------------------
 #インスタンスを生成する
