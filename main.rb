@@ -11,18 +11,12 @@ end
 class Brave < Character
   def attack(monster)
     # 勇者がモンスターに攻撃する
-    # モンスターのHPを減らす
-    monster.damage = brave[:offense] - monster[:defense] / 2
-    monster.hp =- monster.damage
 
-    puts <<~TEXT
-    #{monster.name} があらわれた!
-    ゆうしゃ の攻撃！
-    TEXT
-
-    while true
-      puts "#{monster.name}に#{monster.damage} のダメージを与えた！"
-    end
+    #ダメージ計算式
+    damage = offense - monster.defense / 2
+    puts "#{monster.name} があらわれた！"
+    puts "#{@name} の攻撃!"
+    puts "#{monster.name}に#{damage} のダメージを与えた！"
   end
 end
 
