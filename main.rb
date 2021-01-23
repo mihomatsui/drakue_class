@@ -65,8 +65,15 @@ puts "#{monster.name} があらわれた!"
 loop do
   # 勇者がモンスターを攻撃する
   brave.attack(monster)
+
+  # モンスターのHPが0になったら無限ループ終了
+  break if monster.hp <= 0
+
   # モンスターが勇者を攻撃する
   monster.attack(brave)
+
+  # 勇者のHPが0になったら無限ループ終了
+  break if brave.hp <= 0
 
   puts <<~TEXT
   *=*=*=*=*=*=*=*=*=*=*
