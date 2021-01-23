@@ -7,7 +7,7 @@ class Brave < Character
     # 勇者がモンスターに攻撃する
     puts "#{@name} の攻撃!"
     #モンスターが受けるダメージの計算
-    damage = calculate_damage(target: monster)
+    damage = calculate_damage(monster)
 
     # モンスターのHPから計算したダメージを引く
     cause_damage(target: monster,damage: damage)
@@ -15,9 +15,7 @@ class Brave < Character
   end
 
   private
-    def calculate_damage(**params)
-      target = params[:target]
-      
+    def calculate_damage(target)
       @offense - target.defense / 2
     end
 
