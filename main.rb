@@ -58,7 +58,7 @@ end
 #インスタンスを生成する
   brave = Brave.new(name: "ゆうしゃ", hp: 238, offense: 203, defense: 129)
   monster = Monster.new(name: "アークデーモン", hp: 210, offense: 140, defense: 80)
-  # monster = Monster.new(name: "シドー", hp: 250, offense: 255, defense: 255)
+  monster = Monster.new(name: "シドー", hp: 250, offense: 255, defense: 255)
 
 puts "#{monster.name} があらわれた!"
 
@@ -81,4 +81,21 @@ loop do
   【#{monster.name}】HP: #{monster.hp}
   *=*=*=*=*=*=*=*=*=*=*
   TEXT
+end
+
+if brave.hp <= 0 || monster.hp <= 0
+  puts <<~TEXT
+  *=*=*=*=*=*=*=*=*=*=*
+  【#{brave.name}】HP: #{brave.hp}
+  【#{monster.name}】HP: #{monster.hp}
+  *=*=*=*=*=*=*=*=*=*=*
+  TEXT
+end
+
+battle_result = brave.hp > 0
+
+if battle_result
+  puts "#{monster.name} をやっつけた!"
+else
+  puts "#{brave.name} はしんでしまった!"
 end
