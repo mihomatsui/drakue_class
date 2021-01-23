@@ -54,14 +54,6 @@ class Monster < Character
 end
 
 
-
-
-
-
-
-
-
-
 # 実体を生成する部分、呼び出し部分 -------------------
 #インスタンスを生成する
   brave = Brave.new(name: "ゆうしゃ", hp: 238, offense: 203, defense: 129)
@@ -69,14 +61,17 @@ end
   # monster = Monster.new(name: "シドー", hp: 250, offense: 255, defense: 255)
 
 puts "#{monster.name} があらわれた!"
-# 勇者がモンスターを攻撃する
-brave.attack(monster)
-# モンスターが勇者を攻撃する
-monster.attack(brave)
 
-puts <<~TEXT
-*=*=*=*=*=*=*=*=*=*=*
-【#{brave.name}】HP: #{brave.hp}
-【#{monster.name}】HP: #{monster.hp}
-*=*=*=*=*=*=*=*=*=*=*
-TEXT
+loop do
+  # 勇者がモンスターを攻撃する
+  brave.attack(monster)
+  # モンスターが勇者を攻撃する
+  monster.attack(brave)
+
+  puts <<~TEXT
+  *=*=*=*=*=*=*=*=*=*=*
+  【#{brave.name}】HP: #{brave.hp}
+  【#{monster.name}】HP: #{monster.hp}
+  *=*=*=*=*=*=*=*=*=*=*
+  TEXT
+end
