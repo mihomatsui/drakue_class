@@ -12,14 +12,16 @@ class Brave < Character
     cause_damage(target: monster,damage: damage)
 
   end
-  def cause_damage(**params)
-    damage = params[:damage]
-    target = params[:target]
 
-    target.hp -= damage
-    target.hp = 0 if target.hp < 0
-    puts "#{target.name} に #{damage} のダメージを与えた!"
-  end
+  private
+    def cause_damage(**params)
+      damage = params[:damage]
+      target = params[:target]
+
+      target.hp -= damage
+      target.hp = 0 if target.hp < 0
+      puts "#{target.name} に #{damage} のダメージを与えた!"
+    end
 end
 
 class Monster < Character
