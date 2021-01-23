@@ -1,42 +1,64 @@
-class Character
-  attr_accessor :name, :hp, :offense, :defense
-  def initialize(name:, hp:, offense:, defense:)
-    @name = name
-    @hp = hp
-    @offense = offense
-    @defense = defense
-  end
-end
+require "./character"
+
 
 class Brave < Character
+
   def attack(monster)
     # 勇者がモンスターに攻撃する
-
-    #ダメージ計算式
-    damage = offense - monster.defense / 2
-    puts "#{monster.name} があらわれた！"
     puts "#{@name} の攻撃!"
-    puts "#{monster.name}に#{damage} のダメージを与えた！"
+    #モンスターが受けるダメージの計算
+    damage = @offense - monster.defense / 2
+    # モンスターのHPから計算したダメージを引く
+    cause_damage(target: monster,damage: damage)
+
+  end
+  def cause_damage(**params)
+    damage = params[:damage]
+    target = params[:target]
+
+    target.hp -= damage
+    target.hp = 0 if target.hp < 0
+    puts "#{target.name} に #{damage} のダメージを与えた!"
   end
 end
 
 class Monster < Character
   def attack(brave)
     # モンスターが勇者に攻撃する
-    #ダメージ計算式
-    damage = offense - brave.defense / 2
+    # 勇者が受けるダメージの計算
+    damage = @offense - brave.defense / 2
+    brave.hp -= damage
+    brave.hp = 0 if brave.hp < 0
+    # メッセージの追記
     puts "#{@name} の攻撃!"
-    puts "#{brave.name} は #{damage} のダメージを受けた！"
+    puts "#{brave.name} に #{damage} のダメージを与えた!"
   end
 end
+
+
+
+
+
+
+
+
 
 
 # 実体を生成する部分、呼び出し部分 -------------------
 #インスタンスを生成する
   brave = Brave.new(name: "ゆうしゃ", hp: 238, offense: 203, defense: 129)
   monster = Monster.new(name: "アークデーモン", hp: 210, offense: 140, defense: 80)
+  # monster = Monster.new(name: "シドー", hp: 250, offense: 255, defense: 255)
 
+puts "#{monster.name} があらわれた!"
 # 勇者がモンスターを攻撃する
-  brave.attack(monster)
+brave.attack(monster)
 # モンスターが勇者を攻撃する
-  monster.attack(brave)
+monster.attack(brave)
+
+puts <<~TEXT
+*=*=*=*=*=*=*=*=*=*=*
+【#{brave.name}】HP: #{brave.hp}
+【#{monster.name}】HP: #{monster.hp}
+*=*=*=*=*=*=*=*=*=*=*
+TEXT
