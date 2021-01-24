@@ -8,9 +8,7 @@ class Character
     @offense = params[:offense]
     @defense = params[:defense]
   end
-end
 
-private
   def calculate_damage(target)
     @offense - target.defense / 2
   end
@@ -23,3 +21,4 @@ private
     target.hp = 0 if target.hp < 0
     puts "#{target.name} に #{damage} のダメージを与えた!"
   end
+end
