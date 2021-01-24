@@ -1,6 +1,5 @@
-require "./brave"
-require "./monster"
-
+require './brave'
+require './monster'
 
 # 実体を生成する部分、呼び出し部分 -------------------
 #インスタンスを生成する

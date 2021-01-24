@@ -1,4 +1,4 @@
-require "./character"
+require './character'
 
 class Monster < Character
   def attack(brave)
